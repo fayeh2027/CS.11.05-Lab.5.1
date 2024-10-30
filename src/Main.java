@@ -1,182 +1,70 @@
+import java.util.Arrays;
+
 public class Main {
-
-    /**
-     * Mean Methods
-     */
-
-    public static int meanTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
-    {
-        return -1;
+    public static int getCountryTotalWastePerYear(String country, String[] countries, int[] totalWasteKgPerCapitaPerYear) {
+        int index = 0;
+        for (int i = 0; i < countries.length; i++) {
+            if (countries[i].equals(country)) {
+                index = i;
+            }
+        }
+        return totalWasteKgPerCapitaPerYear[index];
     }
 
-    public static int meanHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
+    public static String getCountryWithMostWastePerCapita(String[] countries, int[] totalWasteKgPerCapitaPerYear) {
+        int a = 0;
+        int b = totalWasteKgPerCapitaPerYear[0];
+        for (int i = 0; i < totalWasteKgPerCapitaPerYear.length; i++) {
+            if (totalWasteKgPerCapitaPerYear[i] > b) {
+                b = totalWasteKgPerCapitaPerYear[i];
+                a = i;
+            }
+        }
+        return countries[a];
     }
 
-    public static int meanHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
-    {
-        return -1;
+    public static String[] getCountriesWithHighestPovertyPercentage(String[] countries, double[] percentagesShareInPoverty) {
+        double largestValue = 0.0;
+
+        for (int i = 0; i < percentagesShareInPoverty.length; i++) {
+            if (percentagesShareInPoverty[i] > largestValue) {
+                largestValue = percentagesShareInPoverty[i];
+            }
+        }
+
+        int counter = 0;
+        for (int i = 0; i < percentagesShareInPoverty.length; i++) {
+            if (percentagesShareInPoverty[i] == largestValue) {
+                counter++;
+            }
+        }
+
+        String[] countriesWithHighestPoverty = new String[counter];
+        int index = 0;
+        for (int i = 0; i < percentagesShareInPoverty.length; i++) {
+            if (percentagesShareInPoverty[i] == largestValue) {
+                countriesWithHighestPoverty[index++] = countries[i];
+            }
+        }
+
+        return countriesWithHighestPoverty;
     }
 
-    public static int meanRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
+    public static String[] getCountriesWithHighConfidence(String[] countries, String[] confidences) {
+        int counter = 0;
 
-    public static int meanRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int meanFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int meanFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    /**
-     * Median Methods
-     */
-
-    public static int medianTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int medianHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int medianHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int medianRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int medianRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int medianFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int medianFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    /**
-     * Min Methods
-     */
-
-    public static int minTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int minHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int minHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int minRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int minRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int minFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int minFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    /**
-     * Max Methods
-     */
-    
-    public static int maxTotalWasteKgPerCapitaPerYear(int[] totalWasteKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int maxHouseholdEstimateKgPerCapitaPerYear(int[] householdEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int maxHouseholdEstimateTonnesPerYear(int[] householdEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int maxRetailEstimateKgPerCapitaPerYear(int[] retailEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int maxRetailEstimateTonnesPerYear(int[] retailEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    public static int maxFoodServiceEstimateKgPerCapitaPerYear(int[] foodServiceEstimatesKgPerCapitaPerYear)
-    {
-        return -1;
-    }
-
-    public static int maxFoodServiceEstimateTonnesPerYear(int[] foodServiceEstimatesTonnesPerYear)
-    {
-        return -1;
-    }
-
-    /**
-     * Misc Methods
-     */
-
-    public static String getCountryTotalWastePerYear(String country, String[] countries, int[] totalWasteKgPerCapitaPerYear)
-    {
-        return "";
-    }
-
-    public static String getCountryWithMostWastePerCapita(String[] countries, int[] totalWasteKgPerCapitaPerYear)
-    {
-        return "";
-    }
-
-    public static String[] getCountriesWithHighestPovertyPercentage(String[] countries, double[] percentagesShareInPoverty)
-    {
-        return new String[0];
-    }
-
-    public static String[] getCountriesWithHighConfidence(String[] countries, String[] confidences)
-    {
-        return new String[0];
+        for (int i = 0; i < confidences.length; i++) {
+            if (confidences[i].equals("High Confidence")) {
+                counter++;
+            }
+        }
+        String[] countriesWithHighConfidence = new String[counter];
+        int index = 0;
+        for (int i = 0; i < confidences.length; i++) {
+            if (confidences[i].equals("High Confidence")){
+                countriesWithHighConfidence[index++] = countries[i];
+            }
+        }
+        return countriesWithHighConfidence;
     }
 }
